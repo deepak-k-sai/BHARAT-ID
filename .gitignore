@@ -1,0 +1,11 @@
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+node_modules/
+dist/
+coverage/
+.venv/
+ecompilot.db
+logs/*.log
+*.pyc
+frontend/package-lock.json

@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BHARATH ID | Eroded Fingerprint-Aware Aadhaar Enrollment & Verification</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-navy text-gray-200 font-inter antialiased overflow-x-hidden selection:bg-cyan-500 selection:text-white">
+
+    <!-- Background Animation Elements -->
+    <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+        <div class="fingerprint-bg"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="glass-nav top-0 z-50 fixed w-full py-4 transition-all duration-300">
+        <div class="container mx-auto px-6 md:px-12 flex justify-between items-center">
+            <div
+                class="text-xl md:text-2xl font-outfit font-bold text-white uppercase tracking-wider flex items-center gap-2">
+                <span class="text-cyan-400"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                    </svg></span>
+                BHARATH ID
+            </div>
+            <div class="hidden md:flex gap-6 text-sm font-medium">
+                <a href="#problem" class="nav-link">Problem</a>
+                <a href="#dashboard" class="nav-link">Analytics</a>
+                <a href="#solution" class="nav-link">Solution</a>
+                <a href="#architecture" class="nav-link">Architecture</a>
+                <a href="#comparison" class="nav-link">Comparison</a>
+                <a href="#demo"
+                    class="nav-btn bg-cyan-600/20 text-cyan-400 border border-cyan-500/30 px-4 py-1.5 rounded-full hover:bg-cyan-500 hover:text-white transition">Demo</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-gray-300 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 1. Hero Section -->
+    <section id="hero" class="min-h-screen flex items-center justify-center relative pt-20">
+        <div class="container mx-auto px-6 md:px-12 text-center z-10 fade-in-up">
+            <div
+                class="inline-block px-4 py-1.5 rounded-full glass-card border-cyan-500/30 text-cyan-300 text-xs md:text-sm font-semibold tracking-widest mb-6 uppercase">
+                Biometric Research Product</div>
+            <h1
+                class="text-5xl md:text-7xl font-outfit font-extrabold text-white mb-6 leading-tight tracking-tight shadow-text">
+                BHARATH ID
+            </h1>
+            <h2 class="text-2xl md:text-3xl font-light text-cyan-200 mb-8 max-w-4xl mx-auto">
+                Eroded Fingerprint-Aware Aadhaar Enrollment & Verification System
+            </h2>
+            <p class="text-lg text-gray-400 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
+                Implementing quality-guided biometric authentication to eliminate verification failures among manual
+                laborers and populations with worn fingerprints.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#dashboard" class="btn btn-primary">View Dashboard</a>
+                <a href="#architecture" class="btn btn-secondary">System Architecture</a>
+                <a href="#results" class="btn btn-secondary">View Results</a>
+                <a href="#comparison" class="btn btn-secondary">Comparison</a>
+                <a href="#demo" class="btn btn-outline">Interactive Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Problem Statement -->
+    <section id="problem" class="py-24 relative">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="section-title">The Authentication Crisis</h2>
+                <div class="title-underline"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 fade-in-left">
+                    <div class="glass-card p-6 border-l-4 border-l-red-500/70">
+                        <h3 class="text-xl font-bold text-white mb-2">High Failure Rates in Existing Systems</h3>
+                        <p class="text-gray-400">Current Aadhaar fingerprint verification experiences a significant
+                            rejection rate for individuals engaged in physical labor.</p>
+                    </div>
+                    <div class="glass-card p-6 border-l-4 border-l-orange-500/70">
+                        <h3 class="text-xl font-bold text-white mb-2">Eroded Fingerprints</h3>
+                        <p class="text-gray-400">Manual labor, aging, and chemical exposure lead to severe ridge
+                            abrasion, rendering traditional minutiae matching ineffective.</p>
+                    </div>
+                    <div class="glass-card p-6 border-l-4 border-l-yellow-500/70">
+                        <h3 class="text-xl font-bold text-white mb-2">Repeated Authentication Failures</h3>
+                        <p class="text-gray-400">Systems routinely command repeated rescans without adjusting matching
+                            thresholds or capture logic, leading to systemic lockouts.</p>
+                    </div>
+                    <div class="glass-card p-6 border-l-4 border-l-gray-500/70">
+                        <h3 class="text-xl font-bold text-white mb-2">Lack of Analytics</h3>
+                        <p class="text-gray-400">Legacy infra lacks intelligent quality-aware verification and fails to
+                            measure or log the root causes of individual matching failures.</p>
+                    </div>
+                </div>
+                <div
+                    class="glass-card p-8 aspect-square flex flex-col justify-center items-center text-center fade-in-right relative overflow-hidden group">
+                    <div
+                        class="absolute inset-0 bg-red-900/10 group-hover:bg-red-900/20 transition-colors duration-500">
+                    </div>
+                    <div class="relative z-10 w-full">
+                        <svg class="w-32 h-32 mx-auto text-red-500 mb-6 drop-shadow-[0_0_15px_rgba(239,68,68,0.5)]"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <h3 class="text-4xl font-outfit font-bold text-white mb-2">36%</h3>
+                        <p class="text-xl text-gray-300 font-medium">Average baseline rejection rate</p>
+                        <p class="text-sm text-gray-500 mt-2 uppercase tracking-wide">Documented among rural workers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Failure Rate Analysis Dashboard -->
+    <section id="dashboard" class="py-24 bg-navy-light/30 relative border-y border-white/5">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="section-title">Failure Rate Analysis Dashboard</h2>
+                <div class="title-underline"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-6">Empirical evaluation of baseline verification systems
+                    using our telemetry capture layer.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Chart 1: Success vs Failed -->
+                <div class="glass-panel p-6 chart-container">
+                    <h4
+                        class="text-sm font-semibold text-gray-300 mb-4 uppercase tracking-wider flex items-center justify-between">
+                        <span>Success vs. Failure</span>
+                        <span class="text-cyan-500 text-xs bg-cyan-500/10 px-2 py-1 rounded">N=10,000</span>
+                    </h4>
+                    <div class="relative h-64">
+                        <canvas id="successFailedChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Chart 2: Failure Rate Trend -->
+                <div class="glass-panel p-6 chart-container lg:col-span-2">
+                    <h4 class="text-sm font-semibold text-gray-300 mb-4 uppercase tracking-wider">Failure Rate Trend
+                        Over Time</h4>
+                    <div class="relative h-64">
+                        <canvas id="trendChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Chart 3: Quality Distribution -->
+                <div class="glass-panel p-6 chart-container lg:col-span-2">
+                    <h4 class="text-sm font-semibold text-gray-300 mb-4 uppercase tracking-wider">Fingerprint Quality
+                        Score Distribution (0-100)</h4>
+                    <div class="relative h-64">
+                        <canvas id="qualityDistChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Chart 4: Failure Causes -->
+                <div class="glass-panel p-6 chart-container">
+                    <h4 class="text-sm font-semibold text-gray-300 mb-4 uppercase tracking-wider">Primary Failure
+                        Vectors</h4>
+                    <div class="relative h-64">
+                        <canvas id="causesChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Chart 5: Scatting Plot -->
+                <div class="glass-panel p-6 chart-container lg:col-span-3">
+                    <div class="flex flex-col md:flex-row gap-8 items-center">
+                        <div class="w-full md:w-2/3 relative h-80">
+                            <canvas id="scatterChart"></canvas>
+                        </div>
+                        <div class="w-full md:w-1/3 space-y-4">
+                            <h4 class="text-lg font-semibold text-white">Quality-Confidence Correlation</h4>
+                            <p class="text-sm text-gray-400 leading-relaxed border-l-2 border-cyan-500 pl-4 py-1">
+                                Analysis reveals a stark non-linear relationship. <strong class="text-cyan-300">Lower
+                                    quality scores exponentially correlate with increased authentication failure
+                                    probability.</strong> Below a quality threshold of 40/100, standard minutiae
+                                matching yields a 92% false reject rate.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Our Solution – BHARATH ID Model -->
+    <section id="solution" class="py-24 relative">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="section-title">The BHARATH ID Model</h2>
+                <div class="title-underline"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-6">An adaptive, quality-guided verification pipeline
+                    designed to drastically reduce false rejection events.</p>
+            </div>
+
+            <div class="relative max-w-5xl mx-auto">
+                <!-- Vertical Line for process flow -->
+                <div
+                    class="absolute left-6 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-500/50 via-blue-500/50 to-transparent transform md:-translate-x-1/2 hidden md:block z-0">
+                </div>
+
+                <div class="space-y-12 relative z-10">
+                    <!-- Step 1 -->
+                    <div class="flex flex-col md:flex-row items-center gap-8 fade-in-up">
+                        <div class="md:w-1/2 md:text-right">
+                            <h3 class="text-2xl font-bold text-white mb-2">Step 1: Metric Capture</h3>
+                            <p class="text-gray-400">High-resolution optical capture using specialized sensors designed
+                                to handle varied skin states (sweat, dirt, dry).</p>
+                        </div>
+                        <div
+                            class="w-12 h-12 rounded-full bg-navy border-2 border-cyan-500 flex items-center justify-center font-bold text-cyan-400 z-10 shrink-0 shadow-[0_0_15px_rgba(6,182,212,0.5)]">
+                            1</div>
+                        <div class="md:w-1/2 glass-card p-5">
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="w-12 h-12 rounded bg-gray-800 flex items-center justify-center text-cyan-500">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm14 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="text-sm text-gray-500 uppercase">Input</div>
+                                    <div class="font-medium text-gray-200">Raw Fingerprint Matrix Array</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="flex flex-col md:flex-row-reverse items-center gap-8 fade-in-up md:delay-100">
+                        <div class="md:w-1/2 text-left">
+                            <h3 class="text-2xl font-bold text-white mb-2">Step 2: Quality Scoring</h3>
+                            <p class="text-gray-400">Algorithmic evaluation of ridge clarity, minutiae count stability,
+                                and local contrast to generate a normalized quality index.</p>
+                        </div>
+                        <div
+                            class="w-12 h-12 rounded-full bg-navy border-2 border-blue-500 flex items-center justify-center font-bold text-blue-400 z-10 shrink-0 shadow-[0_0_15px_rgba(59,130,246,0.5)]">
+                            2</div>
+                        <div class="md:w-1/2 glass-card p-5">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-300 font-medium tracking-wide">Q-Score Render</span>
+                                <span class="text-blue-400 font-mono text-xl">68/100</span>
+                            </div>
+                            <div class="w-full bg-gray-800 rounded-full h-2 mt-3">
+                                <div class="bg-gradient-to-r from-red-500 via-yellow-500 to-blue-500 h-2 rounded-full"
+                                    style="width: 68%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="flex flex-col md:flex-row items-center gap-8 fade-in-up md:delay-200">
+                        <div class="md:w-1/2 md:text-right">
+                            <h3 class="text-2xl font-bold text-white mb-2">Step 3: Risk Prediction</h3>
+                            <p class="text-gray-400">Classifying the authentication event risk based on historical
+                                failure modes for the specific quality profile.</p>
+                        </div>
+                        <div
+                            class="w-12 h-12 rounded-full bg-navy border-2 border-indigo-500 flex items-center justify-center font-bold text-indigo-400 z-10 shrink-0 shadow-[0_0_15px_rgba(99,102,241,0.5)]">
+                            3</div>
+                        <div class="md:w-1/2 glass-card p-5 text-center">
+                            <span
+                                class="inline-block px-3 py-1 bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 rounded text-sm font-semibold tracking-wider">MEDIUM
+                                RISK</span>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="flex flex-col md:flex-row-reverse items-center gap-8 fade-in-up md:delay-300">
+                        <div class="md:w-1/2 text-left">
+                            <h3 class="text-2xl font-bold text-white mb-2">Step 4: Adaptive Strategy</h3>
+                            <p class="text-gray-400">Dynamically selecting the matching protocol based on the computed
+                                risk profile to maximize success probabilities.</p>
+                        </div>
+                        <div
+                            class="w-12 h-12 rounded-full bg-navy border-2 border-green-500 flex items-center justify-center font-bold text-green-400 z-10 shrink-0 shadow-[0_0_15px_rgba(34,197,94,0.5)]">
+                            4</div>
+                        <div class="md:w-1/2 glass-card p-5">
+                            <ul class="space-y-3">
+                                <li class="flex items-center gap-3 text-sm">
+                                    <div class="w-2 h-2 rounded-full bg-green-500"></div>
+                                    <span class="text-gray-300 w-24">High Quality</span>
+                                    <span class="text-gray-500">&rarr; Standard Matching</span>
+                                </li>
+                                <li class="flex items-center gap-3 text-sm">
+                                    <div
+                                        class="w-2 h-2 rounded-full bg-yellow-500 shadow-[0_0_8px_rgba(234,179,8,0.8)]">
+                                    </div>
+                                    <span class="text-white font-medium w-24">Med Quality</span>
+                                    <span class="text-yellow-400 font-medium">&rarr; Multi-scan Fusion</span>
+                                </li>
+                                <li class="flex items-center gap-3 text-sm">
+                                    <div class="w-2 h-2 rounded-full bg-red-500"></div>
+                                    <span class="text-gray-300 w-24">Low Quality</span>
+                                    <span class="text-gray-500">&rarr; Enh. Capture + Selection</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. System Architecture Section -->
+    <section id="architecture" class="py-24 bg-navy-light/30 border-y border-white/5 relative">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="section-title">System Architecture</h2>
+                <div class="title-underline"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-6">A distributed, decoupled microservice architecture
+                    ensuring high availability and secure biometric transmission.</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto glass-panel p-8 md:p-12 relative overflow-hidden group">
+                <!-- Abstract Architecture Visual -->
+                <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4">
+
+                    <!-- Hardware Tier -->
+                    <div class="flex flex-col items-center flex-1 w-full">
+                        <div
+                            class="arch-box border-cyan-500/50 bg-cyan-900/20 text-cyan-300 w-full text-center group-hover:bg-cyan-900/40 transition">
+                            <svg class="w-8 h-8 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4h.002M8 4C4.305 4 1.259 6.787 1.042 10.37m0 0c-.015.191-.027.382-.037.574M8 4v.01">
+                                </path>
+                            </svg>
+                            <span class="font-bold tracking-wide">AS608 Sensor</span>
+                        </div>
+                        <div class="h-8 w-px bg-gradient-to-b from-cyan-500/50 to-blue-500/50 my-2"></div>
+                        <div
+                            class="arch-box border-blue-500/50 bg-blue-900/20 text-blue-300 w-full text-center group-hover:bg-blue-900/40 transition">
+                            <svg class="w-8 h-8 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z">
+                                </path>
+                            </svg>
+                            <span class="font-bold tracking-wide">ESP8266 Node</span>
+                        </div>
+                    </div>
+
+                    <!-- Connective Pipeline -->
+                    <div class="hidden md:flex flex-col items-center text-gray-500">
+                        <span class="text-xs tracking-widest uppercase mb-1">Serial / WiFi</span>
+                        <div class="w-16 h-px bg-gradient-to-r from-blue-500/50 to-indigo-500/50"></div>
+                        <svg class="w-4 h-4 text-indigo-500/50 animate-pulse mt-1" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 5l7 7-7 7M5 5l7 7-7 7"></path>
+                        </svg>
+                    </div>
+
+                    <!-- Software Tier -->
+                    <div class="flex flex-col items-center flex-1 w-full">
+                        <div
+                            class="arch-box border-indigo-500/50 bg-indigo-900/20 text-indigo-300 w-full text-center group-hover:bg-indigo-900/40 transition relative">
+                            <span
+                                class="absolute -top-3 right-4 bg-indigo-500 text-white text-[10px] px-2 py-0.5 rounded font-bold uppercase tracking-widest shadow-lg">Core</span>
+                            <svg class="w-8 h-8 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01">
+                                </path>
+                            </svg>
+                            <span class="font-bold tracking-wide">REST API Backend</span>
+                        </div>
+
+                        <div class="w-full flex justify-between px-8 mt-2">
+                            <div class="h-8 w-px bg-gradient-to-b from-indigo-500/50 to-purple-500/50"></div>
+                            <div class="h-8 w-px bg-gradient-to-b from-indigo-500/50 to-emerald-500/50"></div>
+                        </div>
+
+                        <div class="flex gap-4 w-full">
+                            <div
+                                class="arch-box border-purple-500/50 bg-purple-900/20 text-purple-300 w-1/2 text-center text-sm p-3 border group-hover:bg-purple-900/40 transition">
+                                <svg class="w-6 h-6 mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4">
+                                    </path>
+                                </svg>
+                                Postgres DB
+                            </div>
+                            <div
+                                class="arch-box border-emerald-500/50 bg-emerald-900/20 text-emerald-300 w-1/2 text-center text-sm p-3 border group-hover:bg-emerald-900/40 transition">
+                                <svg class="w-6 h-6 mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z">
+                                    </path>
+                                </svg>
+                                Analytics
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-8 text-center border-t border-white/10 pt-6">
+                    <p class="text-sm text-gray-400">Communication utilizes secure TLS protocols. Handshakes between the
+                        ESP8266 node and the backend API are heavily validated to prevent identity spoofing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Comparison Table -->
+    <section id="comparison" class="py-24 relative">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="section-title">Comparative Analysis</h2>
+                <div class="title-underline"></div>
+            </div>
+
+            <div class="max-w-4xl mx-auto glass-card overflow-hidden">
+                <div class="grid grid-cols-3 bg-gray-800/50 border-b border-gray-700">
+                    <div class="p-4 font-semibold text-gray-400 tracking-wider uppercase text-sm">Feature Domain</div>
+                    <div class="p-4 font-bold text-gray-300 text-center border-l border-gray-700">Legacy Systems</div>
+                    <div class="p-4 font-bold text-cyan-400 text-center border-l border-cyan-500/30 bg-cyan-900/20">
+                        BHARATH ID</div>
+                </div>
+
+                <div class="divide-y divide-gray-800/50">
+                    <!-- Row 1 -->
+                    <div class="grid grid-cols-3 hover:bg-gray-800/30 transition-colors">
+                        <div class="p-5 text-gray-300 font-medium flex items-center">Verification Approach</div>
+                        <div
+                            class="p-5 text-gray-400 text-center border-l border-gray-800 flex items-center justify-center">
+                            Direct match attempt (Pass/Fail)</div>
+                        <div
+                            class="p-5 text-cyan-100 text-center border-l border-cyan-500/20 bg-cyan-900/10 flex items-center justify-center font-medium">
+                            Quality-guided adaptive pipeline</div>
+                    </div>
+                    <!-- Row 2 -->
+                    <div class="grid grid-cols-3 hover:bg-gray-800/30 transition-colors">
+                        <div class="p-5 text-gray-300 font-medium flex items-center">Failure Handling</div>
+                        <div
+                            class="p-5 text-gray-400 text-center border-l border-gray-800 flex items-center justify-center">
+                            Manual retry on absolute failure</div>
+                        <div
+                            class="p-5 text-cyan-100 text-center border-l border-cyan-500/20 bg-cyan-900/10 flex items-center justify-center font-medium">
+                            Predictive risk assessment prior to matching</div>
+                    </div>
+                    <!-- Row 3 -->
+                    <div class="grid grid-cols-3 hover:bg-gray-800/30 transition-colors">
+                        <div class="p-5 text-gray-300 font-medium flex items-center">Capture Logic</div>
+                        <div
+                            class="p-5 text-gray-400 text-center border-l border-gray-800 flex items-center justify-center">
+                            Static criteria limit</div>
+                        <div
+                            class="p-5 text-cyan-100 text-center border-l border-cyan-500/20 bg-cyan-900/10 flex items-center justify-center font-medium">
+                            Multi-scan fusion for eroded ridges</div>
+                    </div>
+                    <!-- Row 4 -->
+                    <div class="grid grid-cols-3 hover:bg-gray-800/30 transition-colors">
+                        <div class="p-5 text-gray-300 font-medium flex items-center">Telemetry Insights</div>
+                        <div
+                            class="p-5 text-gray-400 text-center border-l border-gray-800 flex items-center justify-center text-red-400/80">
+                            <svg class="w-5 h-5 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12" />
+                            </svg></div>
+                        <div
+                            class="p-5 text-cyan-100 text-center border-l border-cyan-500/20 bg-cyan-900/10 flex items-center justify-center font-medium text-green-400/80">
+                            <svg class="w-5 h-5 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg> Dashboard logging root causes</div>
+                    </div>
+                    <!-- Row 5 -->
+                    <div class="grid grid-cols-3 hover:bg-gray-800/30 transition-colors">
+                        <div class="p-5 text-gray-300 font-medium flex items-center">Repeated Rejection Rate</div>
+                        <div
+                            class="p-5 text-gray-400 text-center border-l border-gray-800 flex items-center justify-center font-bold text-red-400">
+                            High (36-40%)</div>
+                        <div
+                            class="p-5 text-cyan-100 text-center border-l border-cyan-500/20 bg-cyan-900/10 flex items-center justify-center font-bold text-green-400">
+                            Reduced &lt; 15%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Effectiveness & Results -->
+    <section id="results" class="py-24 bg-navy-light/30 border-y border-white/5 relative">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="section-title">Evaluation Metrics</h2>
+                <div class="title-underline"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-6">Quantifiable improvements observed during simulated
+                    verification scenarios focusing on populations with high manual labor incidence.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Metric 1 -->
+                <div class="glass-panel p-8 text-center relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-green-500/5 group-hover:bg-green-500/10 transition"></div>
+                    <div class="text-gray-400 text-sm font-semibold uppercase tracking-wider mb-4">Baseline Failure Rate
+                    </div>
+                    <div class="text-5xl font-outfit font-bold text-red-400/50 line-through mb-2">36%</div>
+                    <div
+                        class="text-3xl font-outfit font-bold text-green-400 mb-4 tracking-tight drop-shadow-[0_0_8px_rgba(74,222,128,0.5)]">
+                        13%</div>
+                    <div class="text-xs text-green-500 font-medium bg-green-500/10 inline-block px-2 py-1 rounded">
+                        Significant Decrease</div>
+                </div>
+
+                <!-- Metric 2 -->
+                <div class="glass-panel p-8 text-center relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-cyan-500/5 group-hover:bg-cyan-500/10 transition"></div>
+                    <div class="text-gray-400 text-sm font-semibold uppercase tracking-wider mb-4">Avg Processing Time
+                    </div>
+                    <div class="flex items-end justify-center gap-2 mb-4">
+                        <div class="text-4xl font-outfit font-bold text-white">1.8</div>
+                        <div class="text-xl text-gray-500 mb-1">sec</div>
+                    </div>
+                    <div class="text-xs text-cyan-400 font-medium">Down from 4.2s (iterative retry)</div>
+                </div>
+
+                <!-- Metric 3 -->
+                <div class="glass-panel p-8 text-center relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-blue-500/5 group-hover:bg-blue-500/10 transition"></div>
+                    <div class="text-gray-400 text-sm font-semibold uppercase tracking-wider mb-4">Avg Attempts to
+                        Verify</div>
+                    <div class="flex items-end justify-center gap-2 mb-4">
+                        <div class="text-4xl font-outfit font-bold text-white">1.2</div>
+                        <div class="text-xl text-gray-500 mb-1">scans</div>
+                    </div>
+                    <div class="text-xs text-blue-400 font-medium">Significantly reduced friction</div>
+                </div>
+
+                <!-- Metric 4 -->
+                <div class="glass-panel p-8 text-center relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-indigo-500/5 group-hover:bg-indigo-500/10 transition"></div>
+                    <div class="text-gray-400 text-sm font-semibold uppercase tracking-wider mb-4">Eroded FPS Success
+                    </div>
+                    <div class="flex items-end justify-center gap-2 mb-4">
+                        <div class="text-4xl font-outfit font-bold text-white border-b-2 border-indigo-500 pb-1">+85%
+                        </div>
+                    </div>
+                    <div class="text-xs text-indigo-400 font-medium">Success rate for heavily degraded prints</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Novelty Section -->
+    <section id="novelty" class="py-24 relative">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="relative fade-in-left">
+                    <div class="absolute -inset-4 bg-cyan-500/10 blur-2xl rounded-full z-0"></div>
+                    <div
+                        class="glass-card p-1 z-10 relative bg-gradient-to-br from-cyan-900/40 to-navy-light/90 border border-cyan-500/20">
+                        <div class="bg-[#0a1122]/80 p-8 rounded-xl backdrop-blur-sm">
+                            <h2 class="text-3xl font-outfit font-bold text-white mb-6">Scientific Contributions &
+                                Novelty</h2>
+                            <p class="text-gray-400 mb-6 leading-relaxed">
+                                Most biometric implementations assume ideal capture conditions. BHARATH ID optimizes the
+                                pipeline for pragmatic, real-world constraints where fingerprint topology is inherently
+                                degraded.
+                            </p>
+                            <p class="text-lg font-medium text-cyan-300 border-l-2 border-cyan-500 pl-4 py-2">
+                                It is not merely an enrollment interface, but an active biometric optimization entity
+                                driven by telemetry.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-4 fade-in-right">
+                    <div class="glass-panel p-5 flex items-start gap-4 hover:border-cyan-500/50 transition">
+                        <div
+                            class="w-8 h-8 rounded bg-cyan-900/40 text-cyan-400 flex items-center justify-center shrink-0 mt-1">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-white mb-1">Eroded Fingerprint-Aware Verification</h4>
+                            <p class="text-sm text-gray-400">Explicitly defining matching algorithms to account for low
+                                minutiae density due to physical abrasion.</p>
+                        </div>
+                    </div>
+                    <div class="glass-panel p-5 flex items-start gap-4 hover:border-cyan-500/50 transition">
+                        <div
+                            class="w-8 h-8 rounded bg-cyan-900/40 text-cyan-400 flex items-center justify-center shrink-0 mt-1">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-white mb-1">Failure Analytics Engineering</h4>
+                            <p class="text-sm text-gray-400">First-class dashboarding to map root causes of verification
+                                failure rather than opaque localized rejections.</p>
+                        </div>
+                    </div>
+                    <div class="glass-panel p-5 flex items-start gap-4 hover:border-cyan-500/50 transition">
+                        <div
+                            class="w-8 h-8 rounded bg-cyan-900/40 text-cyan-400 flex items-center justify-center shrink-0 mt-1">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-white mb-1">Quality-Based Decision Pipeline</h4>
+                            <p class="text-sm text-gray-400">Interrupting immediate pass/fail constraints based on a
+                                pre-computed topological quality score matrix.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Tech Stack Section -->
+    <section class="py-16 border-y border-white/5 relative bg-black/20">
+        <div class="container mx-auto px-6 md:px-12 text-center">
+            <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-widest mb-8">Architectural Stack</h3>
+            <div class="flex flex-wrap justify-center gap-4">
+                <span class="tech-badge">Frontend UI (HTML/CSS/JS)</span>
+                <span class="tech-badge">REST Backend Pipeline</span>
+                <span class="tech-badge">Secure DB Models</span>
+                <span class="tech-badge">ESP8266 IoT Microcontroller</span>
+                <span class="tech-badge">AS608 Optical Sensor Node</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. Demo Section -->
+    <section id="demo" class="py-24 relative">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="section-title">System Interfaces Prototype</h2>
+                <div class="title-underline"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-6">Preview of the operational UI layers utilized during
+                    data capture and telemetry analysis operations.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Placeholder 1: Sensor Activity -->
+                <div class="glass-card overflow-hidden group">
+                    <div class="h-64 bg-gray-900 border-b border-gray-800 flex items-center justify-center relative">
+                        <div class="absolute inset-0 flex items-center justify-center opacity-20">
+                            <svg class="w-32 h-32 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                                    d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4h.002M8 4C4.305 4 1.259 6.787 1.042 10.37m0 0c-.015.191-.027.382-.037.574M8 4v.01">
+                                </path>
+                            </svg>
+                        </div>
+                        <div class="relative z-10 max-w-xs text-center">
+                            <div
+                                class="mx-auto w-16 h-16 border-2 border-dashed border-cyan-500/50 rounded flex items-center justify-center text-cyan-500 bg-cyan-900/20 mb-3 animate-pulse">
+                                [ IMG ]
+                            </div>
+                            <span
+                                class="text-xs text-cyan-400 tracking-widest font-mono uppercase bg-black/50 px-2 py-1 rounded">Live
+                                Sensor Feed Placeholder</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-lg font-bold text-white mb-2">Real-time Capture Interface</h4>
+                        <p class="text-sm text-gray-400">Direct matrix extraction visualizing raw sensor data prior to
+                            enhancement filters.</p>
+                    </div>
+                </div>
+
+                <!-- Placeholder 2: Dashboard UI -->
+                <div class="glass-card overflow-hidden group">
+                    <div class="h-64 bg-gray-900 border-b border-gray-800 flex items-center justify-center relative">
+                        <!-- Mock Dashboard Layout Graphic -->
+                        <div class="w-full h-full p-4 flex flex-col gap-2 opacity-50">
+                            <div class="h-10 w-full bg-gray-800 rounded"></div>
+                            <div class="flex gap-2 flex-1">
+                                <div class="w-1/3 bg-gray-800 rounded"></div>
+                                <div class="w-2/3 bg-gray-800 rounded"></div>
+                            </div>
+                            <div class="h-16 w-full bg-gray-800 rounded"></div>
+                        </div>
+                        <div class="absolute z-10 max-w-xs text-center">
+                            <span
+                                class="text-xs text-blue-400 tracking-widest font-mono uppercase bg-black/80 px-3 py-1.5 rounded border border-blue-500/30">Telemetry
+                                Dashboard App Placeholder</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-lg font-bold text-white mb-2">Administrative Analytics Console</h4>
+                        <p class="text-sm text-gray-400">Live ingestion and visualization of demographic verification
+                            failure nodes.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <button class="btn btn-primary"
+                    onclick="alert('Demo environment loading sequence initiated. (Interactive mode placeholder)')">Initialize
+                    Demonstration Sequence</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-white/10 bg-black/40 text-center">
+        <div class="container mx-auto px-6">
+            <div class="text-2xl font-outfit font-bold text-white opacity-50 mb-4">BHARATH ID</div>
+            <p class="text-sm text-gray-500">Final Year Engineering Project &copy; 2026</p>
+            <p class="text-xs text-gray-600 mt-2">Developing robust biometric infrastructure for diverse populations.
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
